@@ -19,7 +19,7 @@
   ],
   "require": {
     "yiisoft/yii2": "~2.0",
-    "abdualiym/yii2-language-class": "*",
+    "abdualiym/yii2-language-class": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "4.*"
