@@ -1,0 +1,41 @@
+{
+  "name": "abdualiym/yii2-contacts",
+  "description": "Yii2 contacts extension",
+  "keywords": [
+    "yii2",
+    "framework",
+    "advanced",
+    "contacts"
+  ],
+  "homepage": "http://www.infosystems.uz/",
+  "type": "project",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Olimjon Aripdjanov",
+      "email": "olimjon@infosystems.uz",
+      "homepage": "http://infosystems.uz"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "~2.0",
+    "abdualiym/yii2-language-class": "*",
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "abdualiym\\contacts\\": ""
+    }
+  },
+  "config": {
+    "process-timeout": 1800
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ]
+}
