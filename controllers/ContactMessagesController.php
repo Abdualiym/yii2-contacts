@@ -1,10 +1,10 @@
 <?php
 
-namespace domain\modules\contact\controllers;
+namespace abdualiym\contacts\controllers;
 
 use Yii;
-use domain\modules\contact\entities\ContactMessages;
-use domain\modules\contact\forms\ContactMessagesSearch;
+use abdualiym\contacts\entities\ContactMessages;
+use abdualiym\contacts\forms\ContactMessagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;

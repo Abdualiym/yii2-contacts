@@ -3,10 +3,10 @@
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
 
-/* @var $model domain\modules\contact\forms\ContactForm */
+/* @var $model abdualiym\contacts\forms\ContactForm */
 
-use domain\modules\contact\entities\Contact;
-use domain\modules\contact\ContactModule;
+use abdualiym\contacts\entities\Contact;
+use abdualiym\contacts\ContactModule;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="col-sm-12">
             <div class="form-group">
-			    <?= Html::submitButton( \domain\modules\contact\ContactModule::t( 'contact', 'Send' ), [
+			    <?= Html::submitButton( \abdualiym\contacts\ContactModule::t( 'contact', 'Send' ), [
 				    'class' => 'btn btn-primary',
 				    'name'  => 'contact-button'
 			    ] ) ?>

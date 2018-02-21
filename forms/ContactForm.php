@@ -1,8 +1,8 @@
 <?php
 
-namespace domain\modules\contact\forms;
+namespace abdualiym\contacts\forms;
 
-use domain\modules\contact\ContactModule;
+use abdualiym\contacts\ContactModule;
 use yii\base\Model;
 
 class ContactForm extends Model

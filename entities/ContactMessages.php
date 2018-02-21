@@ -1,8 +1,8 @@
 <?php
 
-namespace domain\modules\contact\entities;
+namespace abdualiym\contacts\entities;
 
-use domain\modules\contact\ContactModule;
+use abdualiym\contacts\ContactModule;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 

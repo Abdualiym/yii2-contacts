@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model domain\modules\contact\entities\ContactMessages */
+/* @var $model abdualiym\contacts\entities\ContactMessages */
 
 $this->title = Yii::t('app', 'Create Contact Messages');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Contact Messages'), 'url' => ['index']];

@@ -1,10 +1,10 @@
 <?php
 
-namespace domain\modules\contact\controllers;
+namespace abdualiym\contacts\controllers;
 
-use domain\modules\contact\forms\ContactForm;
-use domain\modules\contact\ContactModule;
-use domain\modules\contact\services\ContactService;
+use abdualiym\contacts\forms\ContactForm;
+use abdualiym\contacts\ContactModule;
+use abdualiym\contacts\services\ContactService;
 use Yii;
 use yii\web\Controller;
 

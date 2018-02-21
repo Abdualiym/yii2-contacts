@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model domain\modules\contact\entities\ContactMessages */
+/* @var $model abdualiym\contacts\entities\ContactMessages */
 
 $this->title = Yii::t('app', 'Update Contact Messages: {nameAttribute}', [
     'nameAttribute' => $model->id,

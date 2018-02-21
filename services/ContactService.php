@@ -1,11 +1,11 @@
 <?php
 
-namespace domain\modules\contact\services;
+namespace abdualiym\contacts\services;
 
-use domain\modules\contact\entities\Contact;
-use domain\modules\contact\entities\ContactMessages;
-use domain\modules\contact\forms\ContactForm;
-use domain\modules\contact\ContactModule;
+use abdualiym\contacts\entities\Contact;
+use abdualiym\contacts\entities\ContactMessages;
+use abdualiym\contacts\forms\ContactForm;
+use abdualiym\contacts\ContactModule;
 use Yii;
 use yii\mail\MailerInterface;
 

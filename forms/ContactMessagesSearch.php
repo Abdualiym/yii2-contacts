@@ -1,14 +1,14 @@
 <?php
 
-namespace domain\modules\contact\forms;
+namespace abdualiym\contacts\forms;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use domain\modules\contact\entities\ContactMessages;
+use abdualiym\contacts\entities\ContactMessages;
 
 /**
- * ContactMessagesSearch represents the model behind the search form of `domain\modules\contact\entities\ContactMessages`.
+ * ContactMessagesSearch represents the model behind the search form of `abdualiym\contacts\entities\ContactMessages`.
  */
 class ContactMessagesSearch extends ContactMessages
 {

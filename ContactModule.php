@@ -1,6 +1,6 @@
 <?php
 
-namespace domain\modules\contact;
+namespace abdualiym\contacts;
 
 use Yii;
 
@@ -9,7 +9,7 @@ use Yii;
  */
 class ContactModule extends \yii\base\Module
 {
-    public $controllerNamespace = 'domain\modules\contact\controllers';
+    public $controllerNamespace = 'abdualiym\contacts\controllers';
 
     public $defaultRoute = 'contact';
 
