@@ -15,9 +15,6 @@ use yii\filters\VerbFilter;
  */
 class ContactMessagesController extends Controller implements ViewContextInterface
 {
-    /**
-     * @inheritdoc
-     */
     public function behaviors()
     {
         return [
@@ -37,10 +34,6 @@ class ContactMessagesController extends Controller implements ViewContextInterfa
     }
 
 
-    /**
-     * Lists all ContactMessages models.
-     * @return mixed
-     */
     public function actionIndex()
     {
         $searchModel = new ContactMessagesSearch();
@@ -52,12 +45,7 @@ class ContactMessagesController extends Controller implements ViewContextInterfa
         ]);
     }
 
-    /**
-     * Displays a single ContactMessages model.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     public function actionView($id)
     {
         return $this->render('view', [
@@ -65,11 +53,7 @@ class ContactMessagesController extends Controller implements ViewContextInterfa
         ]);
     }
 
-    /**
-     * Creates a new ContactMessages model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
+
     public function actionCreate()
     {
         $model = new ContactMessages();
@@ -83,13 +67,7 @@ class ContactMessagesController extends Controller implements ViewContextInterfa
         ]);
     }
 
-    /**
-     * Updates an existing ContactMessages model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
@@ -103,13 +81,7 @@ class ContactMessagesController extends Controller implements ViewContextInterfa
         ]);
     }
 
-    /**
-     * Deletes an existing ContactMessages model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
@@ -117,13 +89,7 @@ class ContactMessagesController extends Controller implements ViewContextInterfa
         return $this->redirect(['index']);
     }
 
-    /**
-     * Finds the ContactMessages model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return ContactMessages the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
+
     protected function findModel($id)
     {
         if (($model = ContactMessages::findOne($id)) !== null) {
