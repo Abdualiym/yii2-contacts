@@ -5,6 +5,7 @@ namespace abdualiym\contacts\controllers;
 use Yii;
 use abdualiym\contacts\entities\ContactMessages;
 use abdualiym\contacts\forms\ContactMessagesSearch;
+use yii\base\ViewContextInterface;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,7 +13,7 @@ use yii\filters\VerbFilter;
 /**
  * ContactMessagesController implements the CRUD actions for ContactMessages model.
  */
-class ContactMessagesController extends Controller
+class ContactMessagesController extends Controller implements ViewContextInterface
 {
     /**
      * @inheritdoc
@@ -21,13 +22,20 @@ class ContactMessagesController extends Controller
     {
         return [
             'verbs' => [
-                'class' => VerbFilter::className(),
+                'class' => VerbFilter::class,
                 'actions' => [
                     'delete' => ['POST'],
                 ],
             ],
         ];
     }
+
+
+    public function getViewPath()
+    {
+        return Yii::getAlias('@vendor/abdualiym/yii2-slider/views/slide');
+    }
+
 
     /**
      * Lists all ContactMessages models.
