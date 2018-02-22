@@ -6,12 +6,13 @@ use abdualiym\contacts\forms\ContactForm;
 use abdualiym\contacts\ContactModule;
 use abdualiym\contacts\services\ContactService;
 use Yii;
+use yii\base\ViewContextInterface;
 use yii\web\Controller;
 
 /**
  * Default controller for the `contact` module
  */
-class ContactController extends Controller
+class ContactController extends Controller implements ViewContextInterface
 {
     private $service;
 
@@ -20,6 +21,13 @@ class ContactController extends Controller
         parent::__construct($id, $module, $config);
         $this->service = $service;
     }
+
+
+    public function getViewPath()
+    {
+        return Yii::getAlias('@vendor/abdualiym/yii2-contacts/views/contact');
+    }
+
 
     public function actionIndex()
     {

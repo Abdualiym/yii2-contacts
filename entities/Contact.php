@@ -11,8 +11,8 @@ class Contact extends Model
     public static function getPreferredAnswers($id = null)
     {
         $array = [
-//            1 => ContactModule::t('contact', 'By email'),
-//            2 => ContactModule::t('contact', 'By phone')
+            1 => ContactModule::t('contact', 'By email'),
+            2 => ContactModule::t('contact', 'By phone')
         ];
         return $id ? ArrayHelper::getValue($array, $id, 1) : $array;
     }
@@ -20,8 +20,8 @@ class Contact extends Model
     public static function getSubjects($id = null)
     {
         $array = [
-//            1 => ContactModule::t('contact', 'Internet / Interactive TV for home and office'),
-//            2 => ContactModule::t('contact', 'Telephone connection for home and office')
+            1 => ContactModule::t('contact', 'Internet / Interactive TV for home and office'),
+            2 => ContactModule::t('contact', 'Telephone connection for home and office')
         ];
         return $id ? ArrayHelper::getValue($array, $id, 1) : $array;
     }
@@ -29,24 +29,24 @@ class Contact extends Model
     public static function getRegions($id = null)
     {
         $array = [
-//            1 => ContactModule::t('contact', 'Karakalpakstan Republic'),
-//            2 => ContactModule::t('contact', 'Andijan region'),
-//            3 => ContactModule::t('contact', 'Bukhara region'),
-//            4 => ContactModule::t('contact', 'Djizak region'),
-//            5 => ContactModule::t('contact', 'Djizak'),
-//            6 => ContactModule::t('contact', 'Kashkadarya region'),
-//            7 => ContactModule::t('contact', 'Karshi'),
-//            8 => ContactModule::t('contact', 'Navoi region'),
-//            9 => ContactModule::t('contact', 'Namangan region'),
-//            10 => ContactModule::t('contact', 'Samarkand region'),
-//            11 => ContactModule::t('contact', 'Samarkand'),
-//            12 => ContactModule::t('contact', 'Surkhandarya region'),
-//            13 => ContactModule::t('contact', 'Termez'),
-//            14 => ContactModule::t('contact', 'Syrdarya region'),
-//            15 => ContactModule::t('contact', 'Tashkent region'),
-//            16 => ContactModule::t('contact', 'Ferghana region'),
-//            17 => ContactModule::t('contact', 'Khorezm region'),
-//            18 => ContactModule::t('contact', 'City of Tashkent'),
+            1 => ContactModule::t('contact', 'Karakalpakstan Republic'),
+            2 => ContactModule::t('contact', 'Andijan region'),
+            3 => ContactModule::t('contact', 'Bukhara region'),
+            4 => ContactModule::t('contact', 'Djizak region'),
+            5 => ContactModule::t('contact', 'Djizak'),
+            6 => ContactModule::t('contact', 'Kashkadarya region'),
+            7 => ContactModule::t('contact', 'Karshi'),
+            8 => ContactModule::t('contact', 'Navoi region'),
+            9 => ContactModule::t('contact', 'Namangan region'),
+            10 => ContactModule::t('contact', 'Samarkand region'),
+            11 => ContactModule::t('contact', 'Samarkand'),
+            12 => ContactModule::t('contact', 'Surkhandarya region'),
+            13 => ContactModule::t('contact', 'Termez'),
+            14 => ContactModule::t('contact', 'Syrdarya region'),
+            15 => ContactModule::t('contact', 'Tashkent region'),
+            16 => ContactModule::t('contact', 'Ferghana region'),
+            17 => ContactModule::t('contact', 'Khorezm region'),
+            18 => ContactModule::t('contact', 'City of Tashkent'),
         ];
         return $id ? ArrayHelper::getValue($array, $id, 1) : $array;
     }

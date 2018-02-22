@@ -33,3 +33,19 @@ php yii migrate/up --migrationPath=@vendor/abdualiym/yii2-slider/migrations
     ],
 ],
 ```
+
+- add to common config file:
+```php
+'i18n' => [
+    'translations' => [
+        'contact' => [
+            'class' => 'yii\i18n\PhpMessageSource',
+            'basePath' => '@vendor/abdualiym/yii2-contacts/messages',
+            'sourceLanguage' => 'en',
+            'fileMap' => [
+                'contact' => 'contact.php',
+            ],
+        ],
+    ]
+],
+```

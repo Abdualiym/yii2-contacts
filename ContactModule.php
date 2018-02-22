@@ -20,14 +20,14 @@ class ContactModule extends \yii\base\Module
     }
 
 
-//    public function registerTranslations()
-//    {
-//        Yii::$app->i18n->translations['vendor/abdualiym/yii2-contacts/*'] = [
+    public function registerTranslations()
+    {
+//        Yii::$app->i18n->translations['abdualiym/yii2-contacts/*'] = [
 //            'class' => 'yii\i18n\PhpMessageSource',
 //            'sourceLanguage' => 'en',
 //            'basePath' => '@vendor/abdualiym/contacts/messages',
 //            'fileMap' => [
-//                'vendor/abdualiym/yii2-contacts' => 'contact.php',
+//                'abdualiym/contacts' => 'contact.php',
 //            ],
 //        ];
 //        Yii::$app->i18n->translations['modules/contact/*'] = [
@@ -38,11 +38,11 @@ class ContactModule extends \yii\base\Module
 //                'modules/contact/contact' => 'contact.php',
 //            ],
 //        ];
-//    }
+    }
 
-//    public static function t($category, $message, $params = [], $language = null)
-//    {
-//        return Yii::t('vendor/abdualiym/yii2-contacts/' . $category, $message, $params, $language);
-////        return Yii::t('modules/contact/' . $category, $message, $params, $language);
-//    }
+    public static function t($category, $message, $params = [], $language = null)
+    {
+        return Yii::t('' . $category, $message, $params, $language);
+//        return Yii::t('modules/contact/' . $category, $message, $params, $language);
+    }
 }

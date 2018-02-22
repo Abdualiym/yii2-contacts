@@ -24,8 +24,7 @@ class ContactService
     {
         // send to region
         $m = $this->mailer->compose()
-//            ->setTo(Contact::getEmailBy($form->region, $form->subject))
-            ->setTo(Contact::getEmailBy())
+            ->setTo(Contact::getEmailBy($form->region, $form->subject))
             ->setFrom(['noreply@infosystems.uz' => 'AK "Uztelecom" contact form'])
             ->setSubject(Contact::getSubjects($form->subject))
             ->setHtmlBody('Имя: ' . $form->name . '<br>Регион: ' . Contact::getRegions($form->region) . '<br>Телефон: ' . $form->phone . '<br>Email: ' . $form->email . '<br>Предпочтительный способ ответа: ' . Contact::getPreferredAnswers($form->preferredAnswer) . '<br>Текст: ' . $form->text);

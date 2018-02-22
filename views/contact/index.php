@@ -5,61 +5,61 @@
 
 /* @var $model abdualiym\contacts\forms\ContactForm */
 
-use abdualiym\contacts\entities\Contact;
 use abdualiym\contacts\ContactModule;
+use abdualiym\contacts\entities\Contact;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$this->title                   = ContactModule::t( 'contact', 'Feedback' );
+$this->title = ContactModule::t('contact', 'Feedback');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="site-contact">
-    <h1><?= Html::encode( $this->title ) ?></h1>
+    <h1><?= Html::encode($this->title) ?></h1>
 
-	<?= ContactModule::t( 'contact', '&nbsp;' ) ?>
+    <?= ContactModule::t('contact', '&nbsp;') ?>
 
-	<?= \common\widgets\Alert::widget() ?>
+    <?= \common\widgets\Alert::widget() ?>
 
-    <p style="color: red;">* - <?= ContactModule::t( 'contact', 'REQUIRED FIELDS' ) ?></p>
+    <p style="color: red;">* - <?= ContactModule::t('contact', 'REQUIRED FIELDS') ?></p>
 
     <div class="row">
 
-		<?php $form = ActiveForm::begin( [ 'id' => 'contact-form' ] ); ?>
+        <?php $form = ActiveForm::begin(['id' => 'contact-form']); ?>
         <div class="col-sm-6">
-			<?= $form->field( $model, 'subject' )->dropDownList( Contact::getSubjects() ) ?>
+            <?= $form->field($model, 'subject')->dropDownList(Contact::getSubjects()) ?>
 
-			<?= $form->field( $model, 'name' )->textInput() ?>
+            <?= $form->field($model, 'name')->textInput() ?>
 
-			<?= $form->field( $model, 'region' )->dropDownList( Contact::getRegions() ) ?>
+            <?= $form->field($model, 'region')->dropDownList(Contact::getRegions()) ?>
         </div>
         <div class="col-sm-6">
 
-			<?= $form->field( $model, 'phone' )->textInput() ?>
+            <?= $form->field($model, 'phone')->textInput() ?>
 
-			<?= $form->field( $model, 'email' )->textInput() ?>
+            <?= $form->field($model, 'email')->textInput() ?>
 
-			<?= $form->field( $model, 'preferredAnswer' )->dropDownList( Contact::getPreferredAnswers() ) ?>
+            <?= $form->field($model, 'preferredAnswer')->dropDownList(Contact::getPreferredAnswers()) ?>
         </div>
         <div class="col-sm-12 contact-form-text">
-			<?= $form->field( $model, 'text' )->textarea( [ 'rows' => 10 ] ) ?>
+            <?= $form->field($model, 'text')->textarea(['rows' => 10]) ?>
         </div>
         <div class="col-sm-6 contact-form-captcha">
-			<?= $form->field( $model, 'verifyCode' )->widget( \yii\captcha\Captcha::className(), [
-				'captchaAction' => [ '/captcha' ],
-				'template'      => '<div class="row"><div class="col-sm-3">{image}</div><div class="col-sm-3">{input}</div></div>'
-			] ) ?>
+            <?= $form->field($model, 'verifyCode')->widget(\yii\captcha\Captcha::className(), [
+                'captchaAction' => ['/captcha'],
+                'template' => '<div class="row"><div class="col-sm-3">{image}</div><div class="col-sm-3">{input}</div></div>'
+            ]) ?>
         </div>
         <div class="col-sm-6">
-		    <?= $form->field( $model, 'file' )->fileInput() ?>
+            <?= $form->field($model, 'file')->fileInput() ?>
         </div>
 
         <div class="col-sm-12">
             <div class="form-group">
-			    <?= Html::submitButton( \abdualiym\contacts\ContactModule::t( 'contact', 'Send' ), [
-				    'class' => 'btn btn-primary',
-				    'name'  => 'contact-button'
-			    ] ) ?>
+                <?= Html::submitButton(\abdualiym\contacts\ContactModule::t('contact', 'Send'), [
+                    'class' => 'btn btn-primary',
+                    'name' => 'contact-button'
+                ]) ?>
             </div>
         </div>
 
