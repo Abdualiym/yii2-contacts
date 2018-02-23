@@ -40,15 +40,15 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'name' => ContactModule::t('contact', 'NAME'),
-            'region' => ContactModule::t('contact', 'REGION'),
-            'phone' => ContactModule::t('contact', 'CONTACT TELEPHONE NUMBER'),
-            'email' => ContactModule::t('contact', 'E-MAIL ADDRESS'),
-            'subject' => ContactModule::t('contact', 'ADDRESS SUBJECT'),
-            'preferredAnswer' => ContactModule::t('contact', 'HOW DO YOU WANT TO RECEIVE AN ANSWER'),
-            'text' => ContactModule::t('contact', 'MESSAGE TEXT'),
-            'file' => ContactModule::t('contact', 'ATTACH THE FILE'),
-            'verifyCode' => ContactModule::t('contact', 'PROTECTION FROM AUTOMATIC MESSAGES')
+            'name' => Yii::t('contact', 'NAME'),
+            'region' => Yii::t('contact', 'REGION'),
+            'phone' => Yii::t('contact', 'CONTACT TELEPHONE NUMBER'),
+            'email' => Yii::t('contact', 'E-MAIL ADDRESS'),
+            'subject' => Yii::t('contact', 'ADDRESS SUBJECT'),
+            'preferredAnswer' => Yii::t('contact', 'HOW DO YOU WANT TO RECEIVE AN ANSWER'),
+            'text' => Yii::t('contact', 'MESSAGE TEXT'),
+            'file' => Yii::t('contact', 'ATTACH THE FILE'),
+            'verifyCode' => Yii::t('contact', 'PROTECTION FROM AUTOMATIC MESSAGES')
         ];
     }
 }

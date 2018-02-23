@@ -35,10 +35,10 @@ class ContactController extends Controller implements ViewContextInterface
         if ($form->load(Yii::$app->request->post()) && $form->validate()) {
             try {
                 $this->service->send($form);
-                Yii::$app->session->setFlash('success', ContactModule::t('contact', 'Thank you! Your application is accepted!'));
+                Yii::$app->session->setFlash('success', Yii::t('contact', 'Thank you! Your application is accepted!'));
             } catch (\Exception $e) {
                 Yii::$app->errorHandler->logException($e);
-                Yii::$app->session->setFlash('error', ContactModule::t('contact', 'There was an error sending your message.'));
+                Yii::$app->session->setFlash('error', Yii::t('contact', 'There was an error sending your message.'));
             }
             return $this->refresh();
         }

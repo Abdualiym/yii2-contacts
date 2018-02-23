@@ -10,18 +10,18 @@ use abdualiym\contacts\entities\Contact;
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = ContactModule::t('contact', 'Feedback');
+$this->title = Yii::t('contact', 'Feedback');
 $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="site-contact">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= ContactModule::t('contact', '&nbsp;') ?>
+    <?= Yii::t('contact', '&nbsp;') ?>
 
     <?= \common\widgets\Alert::widget() ?>
 
-    <p style="color: red;">* - <?= ContactModule::t('contact', 'REQUIRED FIELDS') ?></p>
+    <p style="color: red;">* - <?= Yii::t('contact', 'REQUIRED FIELDS') ?></p>
 
     <div class="row">
 
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="col-sm-12">
             <div class="form-group">
-                <?= Html::submitButton(\abdualiym\contacts\ContactModule::t('contact', 'Send'), [
+                <?= Html::submitButton(Yii::t('contact', 'Send'), [
                     'class' => 'btn btn-primary',
                     'name' => 'contact-button'
                 ]) ?>

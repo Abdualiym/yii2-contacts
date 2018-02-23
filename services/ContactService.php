@@ -36,7 +36,7 @@ class ContactService
         }
 
         if (!$m->send()) {
-            throw new \RuntimeException(ContactModule::t('contact', 'Sending message to branch email error.'));
+            throw new \RuntimeException(Yii::t('contact', 'Sending message to branch email error.'));
         }
 
         // save to DB
@@ -64,7 +64,7 @@ class ContactService
 <p>О статусе рассмотрения Вашего обращения можете узнать, используя форму обратной связи на сайте Компании</p>');
 
             if (!$m->send()) {
-                throw new \RuntimeException(ContactModule::t('contact', 'Sending message to user email error.'));
+                throw new \RuntimeException(Yii::t('contact', 'Sending message to user email error.'));
             }
         }
     }

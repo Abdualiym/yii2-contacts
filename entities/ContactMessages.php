@@ -43,12 +43,12 @@ class ContactMessages extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => ContactModule::t('contact', 'ID'),
-            'created_at' => ContactModule::t('contact', 'Created At'),
-            'updated_at' => ContactModule::t('contact', 'Updated At'),
-            'status' => ContactModule::t('contact', 'Статус'),
-            'region_id' => ContactModule::t('contact', 'REGION'),
-            'subject_id' => ContactModule::t('contact', 'ADDRESS SUBJECT'),
+            'id' => Yii::t('contact', 'ID'),
+            'created_at' => Yii::t('contact', 'Created At'),
+            'updated_at' => Yii::t('contact', 'Updated At'),
+            'status' => Yii::t('contact', 'Статус'),
+            'region_id' => Yii::t('contact', 'REGION'),
+            'subject_id' => Yii::t('contact', 'ADDRESS SUBJECT'),
         ];
     }
 

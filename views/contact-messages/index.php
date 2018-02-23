@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel abdualiym\contacts\forms\ContactMessagesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = \abdualiym\contacts\ContactModule::t('contact', 'Feedback');
+$this->title = Yii::t('contact', 'Feedback');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contact-messages-index">
@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             [
                 'attribute' => 'id',
-                'label' => \abdualiym\contacts\ContactModule::t('contact', 'Регистрационный номер обращения'),
+                'label' => Yii::t('contact', 'Регистрационный номер обращения'),
             ],
             'name',
             'phone',
@@ -30,12 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'created_at',
                 'format' => 'datetime',
-                'label' => \abdualiym\contacts\ContactModule::t('contact', 'Дата'),
+                'label' => Yii::t('contact', 'Дата'),
             ],
             [
                 'attribute' => 'created_at',
                 'format' => 'datetime',
-                'label' => \abdualiym\contacts\ContactModule::t('contact', 'Дата'),
+                'label' => Yii::t('contact', 'Дата'),
             ],
             [
                 'attribute' => 'region_id',
