@@ -2,6 +2,7 @@
 
 use yii\grid\GridView;
 use yii\widgets\Pjax;
+use Yii;
 
 /* @var $this yii\web\View */
 /* @var $searchModel abdualiym\contacts\forms\ContactMessagesSearch */

@@ -2,7 +2,7 @@
 
 namespace abdualiym\contacts\entities;
 
-use abdualiym\contacts\ContactModule;
+use Yii;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
 
