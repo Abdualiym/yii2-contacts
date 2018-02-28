@@ -1,4 +1,4 @@
-# yii2-slider extension
+# yii2-contacts extension
 
 The extension allows build multi language slider.
 
@@ -7,45 +7,40 @@ The extension allows build multi language slider.
 - Install with composer:
 
 ```bash
-composer require abdualiym/yii2-slider
+composer require abdualiym/yii2-contacts
 ```
 
 - **After composer install** run console command for create tables:
 
 ```bash
-php yii migrate/up --migrationPath=@vendor/abdualiym/yii2-slider/migrations
+php yii migrate/up --migrationPath=@vendor/abdualiym/yii2-contacts/migrations
 ```
 
 - add to backend config file:
 ```php
 'controllerMap' => [
-    'slider' => [
-        'class' => 'abdualiym\slider\controllers\SlideController',
-        'attribute' => 'file',
-        'filePath' => '@frontend/web/app-images/slider/[[attribute_id]]/[[id]].[[extension]]',
-        'fileUrl' => '@frontendUrl/app-images/slider/[[attribute_id]]/[[id]].[[extension]]',
-        'thumbPath' => '@frontend/web/app-temp/slider/cache/[[attribute_id]]/[[profile]]_[[id]].[[extension]]',
-        'thumbUrl' => '@frontendUrl/app-temp/slider/cache/[[attribute_id]]/[[profile]]_[[id]].[[extension]]',
-        'thumbs' => [
-            'admin' => ['width' => 220, 'height' => 70],
-            'thumb' => ['width' => 931, 'height' => 299],
-        ],
+    'contacts' => [
+        'class' => 'abdualiym\contacts\controllers\ContactMessagesController',
     ],
 ],
 ```
 
 - add to common config file:
 ```php
-'i18n' => [
-    'translations' => [
-        'contact' => [
-            'class' => 'yii\i18n\PhpMessageSource',
-            'basePath' => '@vendor/abdualiym/yii2-contacts/messages',
-            'sourceLanguage' => 'en',
-            'fileMap' => [
-                'contact' => 'contact.php',
-            ],
-        ],
-    ]
+'components' => [
+    'contact' => [
+        'class' => 'abdualiym\contacts\ContactModule',
+        'development' => true,
+        'developmentEmail' => true,
+    ],
+],
+```
+
+- add to frontend config file:
+```php
+'controllerMap' => [
+    'contacts' => [
+        'class' => 'abdualiym\contacts\controllers\ContactController',
+    ],
 ],
 ```
