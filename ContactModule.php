@@ -9,6 +9,5 @@ use Yii;
  */
 class ContactModule extends \yii\base\Module
 {
-    public $development  = false;
     public $developmentEmail  = 'olimjon@infosystems.uz';
 }

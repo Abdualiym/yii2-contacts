@@ -5,6 +5,7 @@ namespace abdualiym\contacts\entities;
 use Yii;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
+use yii\helpers\VarDumper;
 
 class Contact extends Model
 {
@@ -128,12 +129,12 @@ class Contact extends Model
             ],
         ];
 
-        if (\Yii::$app->controller->module->development) {
-            return \Yii::$app->controller->module->developmentEmail;
-        } elseif (isset($array[$regionId][$subjectId])) {
-            return $array[$regionId][$subjectId];
+        $module = \Yii::$app->controller->module->getModule('contact');
+
+        if ($module->developmentEmail || !isset($array[$regionId][$subjectId])) {
+            return $module->developmentEmail;
         } else {
-            return $array[1][1];
+            return $array[$regionId][$subjectId];
         }
     }
 

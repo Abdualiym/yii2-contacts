@@ -30,8 +30,7 @@ php yii migrate/up --migrationPath=@vendor/abdualiym/yii2-contacts/migrations
 'components' => [
     'contact' => [
         'class' => 'abdualiym\contacts\ContactModule',
-        'development' => true,
-        'developmentEmail' => true,
+        'developmentEmail' => 'yourDev@email.com',
     ],
 ],
 ```
