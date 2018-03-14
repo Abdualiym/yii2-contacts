@@ -47,7 +47,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-sm-6 contact-form-captcha">
             <?= $form->field($model, 'verifyCode')->widget(\yii\captcha\Captcha::className(), [
                 'captchaAction' => ['/captcha'],
-                'template' => '<div class="row"><div class="col-sm-3">{image}</div><div class="col-sm-3">{input}</div></div>'
+                'template' => '<div class="row"><div class="col-sm-6">{image}</div><div class="col-sm-6">{input}</div></div>'          
             ]) ?>
         </div>
         <div class="col-sm-6">
