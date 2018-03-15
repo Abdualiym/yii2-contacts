@@ -3,11 +3,9 @@
 namespace abdualiym\contacts\controllers;
 
 use abdualiym\contacts\forms\ContactForm;
-use abdualiym\contacts\ContactModule;
 use abdualiym\contacts\services\ContactService;
 use Yii;
 use yii\base\ViewContextInterface;
-use yii\helpers\VarDumper;
 use yii\web\Controller;
 
 /**
@@ -61,7 +59,7 @@ class ContactController extends Controller implements ViewContextInterface
         if (!$m->send()) {
             throw new \RuntimeException(\Yii::t('app', 'Sending error.'));
         } else {
-            echo 'Ok';
+            echo 'Ok! Email send to ' . $mail;
         }
     }
 
