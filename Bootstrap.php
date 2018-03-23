@@ -20,7 +20,7 @@ class Bootstrap implements BootstrapInterface
             [
                 'feedback' => 'contacts/index',
             ],
-            true
+            false
         );
 
         // Add module I18N category.
