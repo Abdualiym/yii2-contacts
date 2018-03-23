@@ -55,7 +55,7 @@ class ContactMessages extends \yii\db\ActiveRecord
     public function behaviors(): array
     {
         return [
-            TimestampBehavior::className(),
+            TimestampBehavior::class,
         ];
     }
 
