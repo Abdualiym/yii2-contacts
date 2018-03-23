@@ -16,30 +16,12 @@ composer require abdualiym/yii2-contacts
 php yii migrate/up --migrationPath=@vendor/abdualiym/yii2-contacts/migrations
 ```
 
-- add to backend config file:
-```php
-'controllerMap' => [
-    'contacts' => [
-        'class' => 'abdualiym\contacts\controllers\ContactMessagesController',
-    ],
-],
-```
-
 - add to common config file:
 ```php
 'components' => [
     'contact' => [
         'class' => 'abdualiym\contacts\ContactModule',
         'developmentEmail' => 'yourDev@email.com',
-    ],
-],
-```
-
-- add to frontend config file:
-```php
-'controllerMap' => [
-    'contacts' => [
-        'class' => 'abdualiym\contacts\controllers\ContactController',
     ],
 ],
 ```
