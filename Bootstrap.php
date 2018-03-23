@@ -1,17 +1,12 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: o
- * Date: 3/23/18
- * Time: 3:41 PM
- */
 
 namespace abdualiym\contacts;
 
 use yii\base\BootstrapInterface;
+use Yii;
 
 /**
- * Users module bootstrap class.
+ * Contacts module bootstrap class.
  */
 class Bootstrap implements BootstrapInterface
 {
