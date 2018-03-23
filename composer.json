@@ -32,6 +32,9 @@
   "config": {
     "process-timeout": 1800
   },
+  "extra": {
+    "bootstrap": "abdualiym\\contacts\\Bootstrap"
+  },
   "repositories": [
     {
       "type": "composer",

@@ -5,7 +5,6 @@ namespace abdualiym\contacts\services;
 use abdualiym\contacts\entities\Contact;
 use abdualiym\contacts\entities\ContactMessages;
 use abdualiym\contacts\forms\ContactForm;
-use abdualiym\contacts\ContactModule;
 use Yii;
 use yii\mail\MailerInterface;
 
@@ -30,7 +29,7 @@ class ContactService
             ->setHtmlBody('Имя: ' . $form->name . '<br>Регион: ' . Contact::getRegions($form->region) . '<br>Телефон: ' . $form->phone . '<br>Email: ' . $form->email . '<br>Предпочтительный способ ответа: ' . Contact::getPreferredAnswers($form->preferredAnswer) . '<br>Текст: ' . $form->text);
 
         if ($form->file) {
-            $fullname = 'app-temp/' . Yii::$app->formatter->asTime(time(), "php:d-m-Y_H-i-s") . ' - fayl.' . $form->file->extension;
+            $fullname = Yii::getAlias('@frontend/web/app-temp/') . Yii::$app->formatter->asTime(time(), "php:d-m-Y_H-i-s") . ' - fayl.' . $form->file->extension;
             $form->file->saveAs($fullname);
             $m->attach($fullname);
         }
