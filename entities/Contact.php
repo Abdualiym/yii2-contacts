@@ -30,6 +30,7 @@ class Contact extends Model
     public static function getRegions($id = null)
     {
         $array = [
+            18 => Yii::t('contact', 'City of Tashkent'),
             1 => Yii::t('contact', 'Karakalpakstan Republic'),
             2 => Yii::t('contact', 'Andijan region'),
             3 => Yii::t('contact', 'Bukhara region'),
@@ -47,7 +48,6 @@ class Contact extends Model
             15 => Yii::t('contact', 'Tashkent region'),
             16 => Yii::t('contact', 'Ferghana region'),
             17 => Yii::t('contact', 'Khorezm region'),
-            18 => Yii::t('contact', 'City of Tashkent'),
         ];
         return $id ? ArrayHelper::getValue($array, $id, 1) : $array;
     }
