@@ -34,7 +34,7 @@ class ContactForm extends Model
                 'maxFiles' => 1,
                 'maxSize' => 10 * 1024 * 1024 // 10 MB
             ],
-//            ['verifyCode', 'captcha'],
+            ['verifyCode', 'captcha'],
         ];
     }
 
