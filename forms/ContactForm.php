@@ -21,11 +21,12 @@ class ContactForm extends Model
     public function rules()
     {
         return [
-            [['name', 'phone', 'email', 'region', 'subject', 'preferredAnswer', 'text', 'verifyCode'], 'required'],
+            [['name', 'phone', 'email', 'region', 'subject', 'text', 'verifyCode'], 'required'],
             [['name', 'phone'], 'string', 'max' => 255],
             [['phone'], 'match', 'pattern' => '#^[\+]?[0-9]{12}$#'],
             ['email', 'email'],
             [['region', 'subject', 'preferredAnswer'], 'integer'],
+            [['preferredAnswer'], 'default', 'value' => 1],
             ['text', 'string'],
             [
                 'file', 'file', 'skipOnEmpty' => true, // file NOT REQUIRED

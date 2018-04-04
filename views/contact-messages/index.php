@@ -34,11 +34,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => Yii::t('contact', 'Дата'),
             ],
             [
-                'attribute' => 'created_at',
-                'format' => 'datetime',
-                'label' => Yii::t('contact', 'Дата'),
-            ],
-            [
                 'attribute' => 'region_id',
                 'value' => function ($model) {
                     return \abdualiym\contacts\entities\Contact::getRegions($model->region_id);

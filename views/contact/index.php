@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?= $form->field($model, 'email')->textInput() ?>
 
-            <?= $form->field($model, 'preferredAnswer')->dropDownList(Contact::getPreferredAnswers()) ?>
+            <?php//= $form->field($model, 'preferredAnswer')->dropDownList(Contact::getPreferredAnswers()) ?>
         </div>
         <div class="col-sm-12 contact-form-text">
             <?= $form->field($model, 'text')->textarea(['rows' => 10]) ?>
