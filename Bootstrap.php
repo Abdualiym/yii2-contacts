@@ -20,7 +20,7 @@ class Bootstrap implements BootstrapInterface
             [
                 'graphs'=>'/site/graphs',
                 'captcha'=>'/site/captcha',
-                'feedback' => 'contact/contact/index',
+                'feedback' => '/contact/contact/index',
             ],
             false
         );

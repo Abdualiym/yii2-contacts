@@ -129,7 +129,13 @@ class Contact extends Model
             ],
         ];
 
-        $module = \Yii::$app->controller->module->getModule('contact');
+        $module = \Yii::$app->controller->module;
+
+//        VarDumper::dump($module, 20, true);
+//
+//        echo "<hr>";
+//
+//        VarDumper::dump(\Yii::$app->controller->module, 20, true);die;
 
         if ($module->developmentEmail || !isset($array[$regionId][$subjectId])) {
             return $module->developmentEmail;

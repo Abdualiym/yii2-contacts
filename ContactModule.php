@@ -11,5 +11,5 @@ class ContactModule extends \yii\base\Module
 {
     public $controllerNamespace = 'abdualiym\contacts\controllers';
 
-    public $developmentEmail;
+    public $developmentEmail = false;
 }
