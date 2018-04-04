@@ -26,7 +26,7 @@ class ContactService
             ->setTo(Contact::getEmailBy($form->region, $form->subject))
             ->setFrom(['noreply@infosystems.uz' => 'AK "Uztelecom" contact form'])
             ->setSubject(Contact::getSubjects($form->subject))
-            ->setHtmlBody('Имя: ' . $form->name . '<br>Регион: ' . Contact::getRegions($form->region) . '<br>Телефон: ' . $form->phone . '<br>Email: ' . $form->email . '<br>Предпочтительный способ ответа: ' . Contact::getPreferredAnswers($form->preferredAnswer) . '<br>Текст: ' . $form->text);
+            ->setHtmlBody('Имя: ' . $form->name . '<br>Регион: ' . Contact::getRegions($form->region) . '<br>Телефон: ' . $form->phone . '<br>Email: ' . $form->email . '<br>Текст: ' . $form->text);
 
         if ($form->file) {
             $fullname = Yii::getAlias('@frontend/web/app-temp/') . Yii::$app->formatter->asTime(time(), "php:d-m-Y_H-i-s") . ' - fayl.' . $form->file->extension;
