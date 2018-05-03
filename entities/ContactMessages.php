@@ -18,6 +18,37 @@ use yii\behaviors\TimestampBehavior;
  */
 class ContactMessages extends \yii\db\ActiveRecord
 {
+    const PROCESSING = 1;
+    const COMPLETE = 0;
+
+    // Status
+
+    public function complete()
+    {
+        if ($this->isComplete()) {
+            throw new \DomainException('message is complete.');
+        }
+        $this->status = self::COMPLETE;
+    }
+
+    public function processing()
+    {
+        if ($this->isProcessing()) {
+            throw new \DomainException('message is processing.');
+        }
+        $this->status = self::PROCESSING;
+    }
+
+    public function isComplete(): bool
+    {
+        return $this->status == self::COMPLETE;
+    }
+
+    public function isProcessing(): bool
+    {
+        return $this->status == self::PROCESSING;
+    }
+
     /**
      * @inheritdoc
      */

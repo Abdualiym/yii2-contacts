@@ -5,7 +5,9 @@ namespace abdualiym\contacts\services;
 use abdualiym\contacts\entities\Contact;
 use abdualiym\contacts\entities\ContactMessages;
 use abdualiym\contacts\forms\ContactForm;
+use abdualiym\text\repositories\NotFoundException;
 use Yii;
+use yii\helpers\VarDumper;
 use yii\mail\MailerInterface;
 
 class ContactService
@@ -19,12 +21,36 @@ class ContactService
         $this->mailer = $mailer;
     }
 
+    ##########     Status     ##########
+
+    public function complete($id)
+    {
+        if(!$contact = ContactMessages::findOne($id)){
+            throw new NotFoundException();
+        }
+        $contact->complete();
+        if(!$contact->save()){
+            throw new \DomainException('save error');
+        }
+    }
+
+    public function processing($id)
+    {
+        if(!$contact = ContactMessages::findOne($id)){
+            throw new NotFoundException();
+        }
+        $contact->processing();
+        if(!$contact->save()){
+            throw new \DomainException('save error');
+        }
+    }
+
     public function send(ContactForm $form)
     {
         // send to region
         $m = $this->mailer->compose()
             ->setTo(Contact::getEmailBy($form->region, $form->subject))
-            ->setFrom(['noreply@infosystems.uz' => 'AK "Uztelecom" contact form'])
+            ->setFrom([$form->email => $form->name,'info@uztelecom.uz' => 'AK "Uztelecom" contact form'])
             ->setSubject(Contact::getSubjects($form->subject))
             ->setHtmlBody('Имя: ' . $form->name . '<br>Регион: ' . Contact::getRegions($form->region) . '<br>Телефон: ' . $form->phone . '<br>Email: ' . $form->email . '<br>Текст: ' . $form->text);
 
@@ -67,4 +93,6 @@ class ContactService
             }
         }
     }
+
+
 }

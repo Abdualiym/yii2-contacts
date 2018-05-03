@@ -2,6 +2,7 @@
 
 namespace abdualiym\contacts\controllers;
 
+use abdualiym\contacts\services\ContactService;
 use Yii;
 use abdualiym\contacts\entities\ContactMessages;
 use abdualiym\contacts\forms\ContactMessagesSearch;
@@ -15,6 +16,14 @@ use yii\filters\VerbFilter;
  */
 class ContactMessagesController extends Controller implements ViewContextInterface
 {
+    private $service;
+
+    public function __construct($id, $module, ContactService $service, $config = [])
+    {
+        parent::__construct($id, $module, $config);
+        $this->service = $service;
+    }
+
     public function behaviors()
     {
         return [
@@ -86,6 +95,28 @@ class ContactMessagesController extends Controller implements ViewContextInterfa
     {
         $this->findModel($id)->delete();
 
+        return $this->redirect(['index']);
+    }
+
+
+    public function actionComplete($id)
+    {
+        try {
+            $this->service->complete($id);
+        } catch (\DomainException $e) {
+            Yii::$app->session->setFlash('error', $e->getMessage());
+        }
+        return $this->redirect(['index']);
+    }
+
+
+    public function actionProcessing($id)
+    {
+        try {
+            $this->service->processing($id);
+        } catch (\DomainException $e) {
+            Yii::$app->session->setFlash('error', $e->getMessage());
+        }
         return $this->redirect(['index']);
     }
 

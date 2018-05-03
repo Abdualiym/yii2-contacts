@@ -6,35 +6,43 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model abdualiym\contacts\entities\ContactMessages */
 
-$this->title = $model->id;
+$this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Contact Messages'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contact-messages-view">
+<div class="row">
+    <div class="col-md-6">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+        <div class="box box-primary">
+            <div class="box-header with-border">
+                <h3 class="box-title"><?= \abdualiym\contacts\helpers\ContactHelper::statusLabel($model) ?> Обратная связь от "<?= $this->title ?>"</h3>
 
-    <p>
-        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+                <div class="box-tools pull-right">
+                    <a href="#" class="btn btn-box-tool" data-toggle="tooltip" title=""
+                       data-original-title="Previous"><i class="fa fa-chevron-left"></i></a>
+                    <a href="#" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Next"><i
+                                class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                <div class="mailbox-read-info">
+                    <h3>Тема: <?= \abdualiym\contacts\entities\Contact::getSubjects($model->subject_id) ?></h3>
+                    <h5>От кого: <?= $model->email ?></h5>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'created_at',
-            'updated_at',
-            'status',
-            'region_id',
-            'subject_id',
-        ],
-    ]) ?>
+                    <h5>Кому: <?= \abdualiym\contacts\entities\Contact::getRegions($model->region_id) ?>
+                        <span class="mailbox-read-time pull-right"><?= Yii::$app->formatter->asDatetime($model->created_at) ?></span></h5>
+                </div>
+                </div>
+                <!-- /.mailbox-controls -->
+                <div class="mailbox-read-message">
+                  <p> <?= $model->text ?></p>
+                </div>
+                <!-- /.mailbox-read-message -->
+            </div>
+            <!-- /.box-body -->
 
-</div>
+        </div>
+
+    </div>
+

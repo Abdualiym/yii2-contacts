@@ -2,7 +2,10 @@
 
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-use Yii;
+use abdualiym\contacts\helpers\ContactHelper;
+use abdualiym\contacts\entities\Contact;
+
+Yii::$app->formatter->locale = 'ru';
 
 /* @var $this yii\web\View */
 /* @var $searchModel abdualiym\contacts\forms\ContactMessagesSearch */
@@ -11,43 +14,95 @@ use Yii;
 $this->title = Yii::t('contact', 'Feedback');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contact-messages-index">
 
-    <?php Pjax::begin(); ?>
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h4><?= $this->title ?></h4>
+    </div>
+    <div class="box-body no-padding">
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-//        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            [
-                'attribute' => 'id',
-                'label' => Yii::t('contact', 'Регистрационный номер обращения'),
-            ],
-            'name',
-            'phone',
-            'email',
-            'text:ntext',
-            [
-                'attribute' => 'created_at',
-                'format' => 'datetime',
-                'label' => Yii::t('contact', 'Дата'),
-            ],
-            [
-                'attribute' => 'region_id',
-                'value' => function ($model) {
-                    return \abdualiym\contacts\entities\Contact::getRegions($model->region_id);
+
+        <div class="table-responsive mailbox-messages">
+
+            <?php Pjax::begin(); ?>
+
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'filterModel' => $searchModel,
+                'layout'=>"<div class=\"mailbox-controls\">{summary}{pager}</div>{items}",
+                'tableOptions' => [
+                    'class' => 'table'
+                ],
+                'rowOptions'=>function ($model, $key, $index, $grid){
+                    $class = ContactHelper::statusBg($model);
+                    return [
+                        'key'=>$key,
+                        'index'=>$index,
+                        'class'=>$class
+                    ];
                 },
-            ],
-            [
-                'attribute' => 'subject_id',
-                'value' => function ($model) {
-                    return \abdualiym\contacts\entities\Contact::getSubjects($model->subject_id);
-                },
-            ],
+                'columns' => [
+//            ['class' => 'yii\grid\SerialColumn'],
+                    [
+                        'attribute' => 'status',
+                        'value' => function ($model) {
+                            return ContactHelper::statusLabel($model);
+                        },
+                        'format' => 'raw',
+                        'filter' => ContactHelper::statusList(),
+                        'contentOptions' => function ($model, $key, $index, $column) {
+                            return ['class' => 'mailbox-star'];
+                        },
+                    ],
+                    [
+                        'attribute' => 'region_id',
+                        'value' => function ($model) {
+                            return Contact::getRegions($model->region_id);
+                        },
+                        'filter' => Contact::getRegions(),
+                        'contentOptions' => function ($model, $key, $index, $column) {
+                            return ['class' => 'mailbox-subject'];
+                        },
+
+                    ],
+
+
+//            [
+//                'attribute' => 'id',
+//                'label' => Yii::t('contact', 'Регистрационный номер обращения'),
+//            ],
+
+                    [
+                        'attribute' => 'name',
+                        'content' => function ($model) {
+                            return \yii\helpers\Html::a($model->name,['view', 'id' => $model->id]);
+                        },
+                    ],
+                    [
+                        'attribute' => 'text',
+                        'content' => function ($model) {
+                            return \yii\helpers\StringHelper::truncate($model->text, 120);
+                        },
+                    ],
+                    [
+                        'attribute' => 'created_at',
+                        'format' => 'datetime',
+                        'label' => Yii::t('contact', 'Дата'),
+                        'filter' => false
+                    ],
+//            [
+//                'attribute' => 'subject_id',
+//                'value' => function ($model) {
+//                    return Contact::getSubjects($model->subject_id);
+//                },
+//                'filter' => Contact::getSubjects()
+//            ],
+
 
 //            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
-    <?php Pjax::end(); ?>
+                ],
+            ]); ?>
+            <?php Pjax::end(); ?>
+        </div>
+    </div>
 </div>
