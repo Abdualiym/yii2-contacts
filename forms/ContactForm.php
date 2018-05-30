@@ -32,7 +32,7 @@ class ContactForm extends Model
             ['text', 'string'],
             [
                 'file', 'file', 'skipOnEmpty' => true, // file NOT REQUIRED
-                'extensions' => ['zip', 'rar', 'pdf'],
+                'extensions' => ['pdf', 'doc', 'docx'],
                 'checkExtensionByMimeType' => true, // Force for check file by "magic" bytes
                 'maxFiles' => 1,
                 'maxSize' => 10 * 1024 * 1024 // 10 MB

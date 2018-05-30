@@ -56,9 +56,10 @@ class ContactService
             ->setHtmlBody('Имя: ' . $form->name . '<br>Регион: ' . Contact::getRegions($form->region) . '<br>Телефон: ' . $form->phone . '<br>Email: ' . $form->email . '<br>Текст: ' . $form->text);
 
         if ($form->file) {
-            $fullname = Yii::getAlias('@frontend/web/app-temp/') . Yii::$app->formatter->asTime(time(), "php:d-m-Y_H-i-s") . ' - fayl.' . $form->file->extension;
-            $form->file->saveAs($fullname);
-            $m->attach($fullname);
+            $fileName = Yii::$app->formatter->asTime(time(), "php:d-m-Y_H-i-s") . ' - fayl.' . $form->file->extension;
+            $fullName = Yii::getAlias('@frontend/web/app-temp/') . $fileName;
+            $form->file->saveAs($fullName);
+            $m->attach($fullName);
         }
 
         if (!$m->send()) {
@@ -75,7 +76,7 @@ class ContactService
         $message->email = $form->email;
         $message->preferred_answer = $form->preferredAnswer;
         $message->text = $form->text;
-        $message->file = $fullname ?? '';
+        $message->file = $fileName ?? '';
         if ($message->save()) {
 
             // Send To User
