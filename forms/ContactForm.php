@@ -18,6 +18,7 @@ class ContactForm extends Model
     public $file;
     public $verifyCode;
 
+
     public function rules()
     {
         return [
@@ -39,6 +40,7 @@ class ContactForm extends Model
         ];
     }
 
+
     public function attributeLabels()
     {
         return [
@@ -52,5 +54,15 @@ class ContactForm extends Model
             'file' => Yii::t('contact', 'ATTACH THE FILE'),
             'verifyCode' => Yii::t('contact', 'PROTECTION FROM AUTOMATIC MESSAGES')
         ];
+    }
+
+
+    public function beforeValidate()
+    {
+        if (parent::beforeValidate()) {
+            $this->file = UploadedFile::getInstance($this, 'file');
+            return true;
+        }
+        return false;
     }
 }
