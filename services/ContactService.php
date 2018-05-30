@@ -25,22 +25,22 @@ class ContactService
 
     public function complete($id)
     {
-        if(!$contact = ContactMessages::findOne($id)){
+        if (!$contact = ContactMessages::findOne($id)) {
             throw new NotFoundException();
         }
         $contact->complete();
-        if(!$contact->save()){
+        if (!$contact->save()) {
             throw new \DomainException('save error');
         }
     }
 
     public function processing($id)
     {
-        if(!$contact = ContactMessages::findOne($id)){
+        if (!$contact = ContactMessages::findOne($id)) {
             throw new NotFoundException();
         }
         $contact->processing();
-        if(!$contact->save()){
+        if (!$contact->save()) {
             throw new \DomainException('save error');
         }
     }
@@ -50,7 +50,8 @@ class ContactService
         // send to region
         $m = $this->mailer->compose()
             ->setTo(Contact::getEmailBy($form->region, $form->subject))
-            ->setFrom([$form->email => $form->name,'info@uztelecom.uz' => 'AK "Uztelecom" contact form'])
+            ->setFrom(['info@uztelecom.uz' => 'AK "Uztelecom" contact form'])
+            ->setReplyTo([$form->email => $form->name, 'info@uztelecom.uz' => 'AK "Uztelecom" contact form'])
             ->setSubject(Contact::getSubjects($form->subject))
             ->setHtmlBody('Имя: ' . $form->name . '<br>Регион: ' . Contact::getRegions($form->region) . '<br>Телефон: ' . $form->phone . '<br>Email: ' . $form->email . '<br>Текст: ' . $form->text);
 
