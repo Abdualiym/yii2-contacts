@@ -15,7 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title"><?= \abdualiym\contacts\helpers\ContactHelper::statusLabel($model) ?> Обратная связь от "<?= $this->title ?>"</h3>
+                <h3 class="box-title"><?= \abdualiym\contacts\helpers\ContactHelper::statusLabel($model) ?> Обратная связь от "<?= $this->title ?>
+                    "</h3>
 
                 <div class="box-tools pull-right">
                     <a href="#" class="btn btn-box-tool" data-toggle="tooltip" title=""
@@ -33,16 +34,19 @@ $this->params['breadcrumbs'][] = $this->title;
                     <h5>Кому: <?= \abdualiym\contacts\entities\Contact::getRegions($model->region_id) ?>
                         <span class="mailbox-read-time pull-right"><?= Yii::$app->formatter->asDatetime($model->created_at) ?></span></h5>
                 </div>
-                </div>
-                <!-- /.mailbox-controls -->
-                <div class="mailbox-read-message">
-                  <p> <?= $model->text ?></p>
-                </div>
-                <!-- /.mailbox-read-message -->
             </div>
-            <!-- /.box-body -->
-
+            <!-- /.mailbox-controls -->
+            <div class="mailbox-read-message">
+                <p> <?= $model->text ?></p>
+            </div>
+            <div class="mailbox-read-message">
+                <p><?= Html::a('Fayl', Yii::getAlias('@staticUrl/app/feedback/' . $model->file), ['target' => '_blank']) ?></p>
+            </div>
+            <!-- /.mailbox-read-message -->
         </div>
+        <!-- /.box-body -->
 
     </div>
+
+</div>
 
