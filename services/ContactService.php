@@ -57,7 +57,7 @@ class ContactService
 
         if ($form->file) {
             $fileName = Yii::$app->formatter->asTime(time(), "php:d-m-Y_H-i-s") . '-fayl.' . $form->file->extension;
-            $fullName = Yii::getAlias('@staticRoot/app/feedback') . $fileName;
+            $fullName = Yii::getAlias('@staticRoot/app/feedback/') . $fileName;
             $form->file->saveAs($fullName);
             $m->attach($fullName);
         }
