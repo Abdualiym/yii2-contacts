@@ -4,6 +4,7 @@ namespace abdualiym\contacts\forms;
 
 use abdualiym\contacts\ContactModule;
 use yii\base\Model;
+use yii\web\UploadedFile;
 use Yii;
 
 class ContactForm extends Model
