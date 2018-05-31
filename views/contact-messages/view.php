@@ -39,9 +39,12 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="mailbox-read-message">
                 <p> <?= $model->text ?></p>
             </div>
-            <div class="mailbox-read-message">
-                <p><?= Html::a('Fayl', Yii::getAlias('@staticUrl/app/feedback/' . $model->file), ['target' => '_blank']) ?></p>
-            </div>
+
+            <?php if ($model->file): ?>
+                <div class="mailbox-read-message">
+                    <p><?= Html::a('Fayl', Yii::getAlias('@staticUrl/app/feedback/' . $model->file), ['target' => '_blank']) ?></p>
+                </div>
+            <?php endif; ?>
             <!-- /.mailbox-read-message -->
         </div>
         <!-- /.box-body -->
